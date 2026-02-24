@@ -44,8 +44,6 @@ services:
     restart: always
     environment:
       PMA_HOST: db
-      PMA_USER: ${DB_USER}
-      PMA_PASSWORD: ${DB_PASSWORD}
     depends_on:
       - db
     networks:
