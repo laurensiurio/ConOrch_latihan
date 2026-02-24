@@ -1,6 +1,7 @@
 services:
   proxy:
     image: nginx:latest
+    container_name: proxy
     ports:
       - "80:80"
     volumes:
@@ -13,7 +14,7 @@ services:
 
   wp:
     image: wordpress:latest
-    restart: always
+    container_name: wp
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${DB_USER}
@@ -28,7 +29,7 @@ services:
 
   db:
     image: mysql:8.0
-    restart: always
+    container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
@@ -41,7 +42,7 @@ services:
 
   pma:
     image: phpmyadmin:latest
-    restart: always
+    container_name: pma
     environment:
       PMA_HOST: db
       PMA_ABSOLUTE_URI: http://${PUBLIC_IP}/pma/
