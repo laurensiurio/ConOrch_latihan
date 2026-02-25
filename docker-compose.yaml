@@ -45,7 +45,6 @@ services:
     container_name: pma
     environment:
       PMA_HOST: db
-      PMA_ABSOLUTE_URI: http://${PUBLIC_IP}/pma/
     depends_on:
       - db
     networks:
